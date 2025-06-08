@@ -1,0 +1,12 @@
+theme: jekyll-theme-cayman
+markdown: GFM
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+include:
+  - README.md
+  - doc40-guia-pratico.md
+  - LICENSE
+future: true
