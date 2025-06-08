@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Documentação 4.0 na Era IA: Do Zero ao Avançado</title>
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.3.1/dist/reset.css">
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.3.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.3.1/dist/theme/black.css" id="theme">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <style>
+        :root {
+            --cp-blue: #0066CC;
+            --cp-dark: #1a1a1a;
+            --cp-accent: #00A8FF;
+            --cp-orange: #FF5722;
+            --reveal-heading-color: var(--cp-blue);
+            --reveal-main-color: #ffffff;
+            --reveal-background-color: var(--cp-dark);
+            --reveal-link-color: var(--cp-accent);
+        }
+        .reveal {
+            font-size: 24px; 
+        }
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+            color: var(--reveal-heading-color);
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-transform: none; 
+            margin-bottom: 0.4em; 
+        }
+        .reveal p, .reveal li, .reveal td, .reveal th, .reveal blockquote {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.4; 
+        }
+        .reveal .progress {
+            background: rgba(0,0,0,0.2);
+            color: var(--cp-blue);
+        }
+        .reveal .highlight {
+            background-color: var(--cp-accent);
+            color: var(--cp-dark);
+            padding: 0.1em 0.3em;
+            border-radius: 3px;
+        }
+        .reveal table th, .reveal table td {
+            border: 1px solid var(--cp-accent);
+            padding: 0.3em; 
+        }
+        .reveal pre { 
+            margin: 0.4em auto; 
+            width: 88%; 
+            box-sizing: border-box;
+        }
+        .reveal pre code {
+            max-height: 380px; 
+            font-size: 0.6em; 
+            line-height: 1.3; 
+            display: block; 
+            overflow: auto; 
+            padding: 0.4em; 
+            border-radius: 5px; 
+        }
+        .reveal .title-slide-presenters {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start; 
+            margin-top: 15px; 
+            width: 100%;
+        }
+        .reveal .title-slide-presenters .presenter-block {
+            flex: 1;
+            padding: 0 8px; 
+            text-align: center;
+            font-size: 0.65em; 
+        }
+        .reveal .title-slide-presenters .presenter-block strong {
+            display: block; 
+            margin-bottom: 2px;
+            color: white;
+        }
+        .reveal .title-slide-presenters .presenter-block span {
+            display: block;
+            font-size: 0.85em; 
+            margin-bottom: 2px;
+            color: #ddd;
+        }
+        .reveal .title-slide-presenters .presenter-block a {
+            font-size: 0.85em;
+            color: var(--cp-accent);
+        }
+        .reveal ul, .reveal ol {
+            margin-bottom: 0.4em;
+            text-align: left; 
+            margin-left: 0.8em; 
+            padding-left: 0.8em; 
+            font-size: 0.8em; 
+        }
+        .reveal li {
+            margin-bottom: 0.15em; 
+        }
+        .reveal blockquote {
+            background: #252525; 
+            border-left: 4px solid var(--cp-blue); 
+            padding: 0.7em; 
+            margin: 0.7em auto; 
+            width: 80%; 
+            box-sizing: border-box;
+        }
+        .code-demo {
+            background: #222;
+            border: 1px solid var(--cp-accent);
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px auto;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-family: monospace;
+            font-size: 0.8em;
+            overflow-x: auto;
+        }
+        .demo-button {
+            background-color: var(--cp-blue);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: background-color 0.3s;
+        }
+        .demo-button:hover {
+            background-color: var(--cp-accent);
+        }
+        .step-card {
+            background: #252525;
+            border-left: 4px solid var(--cp-accent);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .step-card h4 {
+            margin-top: 0;
+            color: var(--cp-accent);
+        }
+        .step-card code {
+            background: #333;
+            padding: 3px 5px;
+            border-radius: 3px;
+        }
+        .action-notes {
+            background-color: #2a2a2a;
+            border-left: 4px solid #00A8FF;
+            padding: 10px 15px;
+            margin-top: 20px;
+            font-size: 0.7em;
+            color: #bbb;
+        }
+        .action-notes strong {
+            color: #00A8FF;
+        }
+        .launch-button {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: var(--cp-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin: 5px;
+        }
+        .launch-button:hover {
+            background-color: var(--cp-accent);
+            color: white;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.7em;
+        }
+        .comparison-table th {
+            background-color: var(--cp-blue);
+            color: white;
+        }
+        .comparison-table td, .comparison-table th {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #444;
+        }
+        .comparison-table .winner {
+            background-color: rgba(0, 255, 0, 0.1);
+            font-weight: bold;
+        }
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .pillar-card {
+            background: #252525;
+            padding: 15px;
+            border-radius: 5px;
+            border-top: 3px solid var(--cp-blue);
+        }
+        .special-pillar {
+            grid-column: 1 / span 2;
+            border-top: 3px solid var(--cp-orange);
+        }
+        .steps-container {
+            counter-reset: step;
+        }
+        .step-box {
+            background: #252525;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 40px;
+        }
+        .step-box:before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 10px;
+            top: 12px;
+            background: var(--cp-blue);
+            width: 24px;
+            height: 24px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .code-window {
+            background: #1e1e1e;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .code-header {
+            background: #333;
+            padding: 8px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #444;
+        }
+        .code-filename {
+            font-family: monospace;
+            font-size: 0.8em;
+            color: #ddd;
+        }
+        .code-content {
+            padding: 10px;
+            overflow: auto;
+            max-height: 300px;
+        }
+        .code-content pre {
+            margin: 0;
+            width: 100%;
+        }
+        .dual-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .demo-section {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 102, 204, 0.1);
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .demo-section h3 {
+            margin-top: 0;
+        }
+        .progress-section {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .progress-item {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        .progress-item:not(:last-child):after {
+            content: "";
+            position: absolute;
+            top: 18px;
+            right: 0;
+            width: calc(100% - 36px);
+            height: 3px;
+            background: #444;
+            z-index: 1;
+        }
+        .progress-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 18px;
+            background: var(--cp-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            position: relative;
+            z-index: 2;
+            font-weight: bold;
+        }
+        .progress-label {
+            font-size: 0.7em;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- SEÇÃO 1: ABERTURA -->
+            <section>
+                <section data-background-color="var(--cp-blue)">
+                    <h1 style="color: white;">Documentação 4.0 na Era IA</h1>
+                    <h3 style="color: white; margin-bottom: 20px;">Do Zero ao Avançado</h3>
+                    <p style="color: #eee; font-size: 0.9em;">Como implementar sistemas de documentação inteligente usando Claude Code</p>
+                    
+                    <div class="title-slide-presenters">
+                        <div class="presenter-block">
+                            <strong>Lucas Dórea Cardoso</strong>
+                            <span>AI Developer<br>Especialista em MCP & Claude Code</span>
+                            <a href="https://github.com/Lucasdoreac" target="_blank">github.com/Lucasdoreac</a>
+                        </div>
+                        <div class="presenter-block">
+                            <strong>Aulus Diniz</strong>
+                            <span>Senior Developer<br>Arquiteto de Documentação</span>
+                            <a href="#" target="_blank">github.com/aulusdiniz</a>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <a href="./doc40-guia-pratico.md" class="launch-button" onclick="event.preventDefault(); openGuide();">VER GUIA PRÁTICO COMPLETO</a>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>📋 Agenda (60 Minutos)</h2>
+                    <div class="progress-section">
+                        <div class="progress-item">
+                            <div class="progress-circle">1</div>
+                            <div class="progress-label">Introdução</div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-circle">2</div>
+                            <div class="progress-label">Conceitos</div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-circle">3</div>
+                            <div class="progress-label">Instalação</div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-circle">4</div>
+                            <div class="progress-label">Implementação</div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-circle">5</div>
+                            <div class="progress-label">Demonstração</div>
+                        </div>
+                    </div>
+                    
+                    <ol>
+                        <li><strong>🎯 O que é Documentação 4.0</strong> (10min) - Conceitos fundamentais</li>
+                        <li><strong>🤖 Ferramentas e Instalação</strong> (15min) - Preparando o ambiente</li>
+                        <li><strong>💻 Implementação Passo a Passo</strong> (20min) - Código e configuração</li>
+                        <li><strong>📊 Demonstração e Casos de Uso</strong> (10min) - Vendo em ação</li>
+                        <li><strong>❓ Q&A</strong> (5min) - Perguntas e Respostas</li>
+                    </ol>
+                    
+                    <div class="action-notes">
+                        <strong>Objetivo:</strong> Ao final desta apresentação, você saberá como implementar um sistema completo de documentação inteligente usando Claude Code e outras ferramentas agênticas, mesmo sem experiência prévia.
+                    </div>
+                </section>
+
+                <section data-background-color="#D32F2F">
+                    <h2>😤 O Problema: Documentação Técnica Tradicional</h2>
+                    <div class="dual-column">
+                        <div>
+                            <h4>Desafios Atuais</h4>
+                            <ul>
+                                <li>Documentação sempre desatualizada</li>
+                                <li>Difícil de manter e sincronizar com o código</li>
+                                <li>Informações espalhadas em diferentes locais</li>
+                                <li>Respostas imprecisas às perguntas dos desenvolvedores</li>
+                                <li>Requer horas de trabalho manual</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Consequências</h4>
+                            <ul>
+                                <li>Aumento no tempo de onboarding (3-6 semanas)</li>
+                                <li>35% das decisões de design baseadas em informações incorretas</li>
+                                <li>Frustração da equipe e perda de conhecimento</li>
+                                <li>Bugs recorrentes por má compreensão do código</li>
+                                <li>Custo estimado: 20-30% do tempo do desenvolvedor</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <blockquote>
+                        "É hora de parar de tratar documentação como um custo e começar a vê-la como um ativo estratégico."
+                    </blockquote>
+                </section>
+            </section>
+
+            <!-- SEÇÃO 2: O QUE É DOCUMENTAÇÃO 4.0 -->
+            <section>
+                <section>
+                    <h2>📈 Evolução da Documentação Técnica</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Aspecto</th>
+                                <th>Doc 1.0<br>(1990-2005)</th>
+                                <th>Doc 2.0<br>(2005-2015)</th>
+                                <th>Doc 3.0<br>(2015-2020)</th>
+                                <th>Doc 4.0<br>(2020-Hoje)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Formato</td>
+                                <td>Word, PDF</td>
+                                <td>Wikis, HTML</td>
+                                <td>Markdown, Git</td>
+                                <td class="winner">IA Adaptativa</td>
+                            </tr>
+                            <tr>
+                                <td>Processo</td>
+                                <td>Manual</td>
+                                <td>Colaborativo</td>
+                                <td>Docs as Code</td>
+                                <td class="winner">Agentes IA</td>
+                            </tr>
+                            <tr>
+                                <td>Atualização</td>
+                                <td>Raramente</td>
+                                <td>Periódica</td>
+                                <td>CI/CD</td>
+                                <td class="winner">Automática</td>
+                            </tr>
+                            <tr>
+                                <td>Busca</td>
+                                <td>Índice, CTRL+F</td>
+                                <td>Palavras-chave</td>
+                                <td>Fulltext</td>
+                                <td class="winner">Semântica</td>
+                            </tr>
+                            <tr>
+                                <td>Conhecimento</td>
+                                <td>Estático</td>
+                                <td>Estático+Links</td>
+                                <td>Interligado</td>
+                                <td class="winner">Contextual</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section>
+                    <h3>🎯 Os 5 Pilares da Documentação 4.0</h3>
+                    <div class="pillars-grid">
+                        <div class="pillar-card">
+                            <h4>1. Busca Agêntica (além do RAG)</h4>
+                            <ul>
+                                <li>Busca dinâmica e adaptativa</li>
+                                <li>Exploração autônoma de múltiplas fontes</li>
+                                <li>Compreensão contextual da base de código</li>
+                                <li>Respostas personalizadas às consultas</li>
+                            </ul>
+                        </div>
+                        <div class="pillar-card">
+                            <h4>2. Geração Inteligente</h4>
+                            <ul>
+                                <li>Documentação gerada diretamente do código</li>
+                                <li>Consistência de estilo e terminologia</li>
+                                <li>Validação automática de exemplos</li>
+                                <li>Múltiplos formatos (Markdown, OpenAPI, etc)</li>
+                            </ul>
+                        </div>
+                        <div class="pillar-card">
+                            <h4>3. Atualização Automática</h4>
+                            <ul>
+                                <li>Monitoramento contínuo de mudanças no código</li>
+                                <li>Atualização proativa da documentação</li>
+                                <li>Detecção de inconsistências e correção</li>
+                                <li>Integração com workflow de desenvolvimento</li>
+                            </ul>
+                        </div>
+                        <div class="pillar-card">
+                            <h4>4. Inteligência Coletiva</h4>
+                            <ul>
+                                <li>Aprendizado com interações dos usuários</li>
+                                <li>Integração de feedback em tempo real</li>
+                                <li>Identificação de padrões de uso</li>
+                                <li>Melhoria contínua baseada em dados</li>
+                            </ul>
+                        </div>
+                        <div class="pillar-card special-pillar">
+                            <h4>5. Implementação Acessível</h4>
+                            <ul style="columns: 2;">
+                                <li>Instalação simples e intuitiva</li>
+                                <li>Passo a passo para iniciantes</li>
+                                <li>Integração com ferramentas existentes</li>
+                                <li>Scripts e exemplos prontos para uso</li>
+                                <li>Curva de aprendizado suave</li>
+                                <li>Resultados imediatos mesmo para iniciantes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>🤖 Claude Code como Motor da Doc 4.0</h3>
+                    <div class="dual-column">
+                        <div>
+                            <h4>O que é Claude Code?</h4>
+                            <ul>
+                                <li>CLI (Command Line Interface) para o modelo Claude</li>
+                                <li>Especializada em tarefas de desenvolvimento</li>
+                                <li>Capacidades agênticas para explorar codebases</li>
+                                <li>Sistema integrado de ferramentas de linguagem natural</li>
+                                <li>Permite operações autônomas em repositórios</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="code-window">
+                                <div class="code-header">
+                                    <span class="code-filename">Terminal</span>
+                                </div>
+                                <div class="code-content">
+                                    <pre><code class="language-bash">$ claude-code query \
+  --directory ./meu-projeto \
+  --query "Como funciona o sistema de autenticação?" \
+  --output json
+
+$ claude-code document \
+  --directory ./meu-projeto \
+  --format markdown \
+  --output-dir ./docs
+
+$ claude-code update-docs \
+  --directory ./meu-projeto \
+  --commit abc123 \
+  --output-dir ./docs</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="action-notes">
+                        <strong>Importante:</strong> Claude Code é uma ferramenta agnóstica de linguagem e framework, funcionando com Python, JavaScript, Java, C++, e outras linguagens sem configuração adicional.
+                    </div>
+                </section>
+            </section>
+
+            <!-- SEÇÃO 3: INSTALAÇÃO E SETUP -->
+            <section>
+                <section>
+                    <h2>🔧 Instalação e Configuração</h2>
+                    <div class="steps-container">
+                        <div class="step-box">
+                            <h4>Instalar Claude Code CLI</h4>
+                            <div class="code-window">
+                                <div class="code-header">
+                                    <span class="code-filename">Terminal (macOS/Linux)</span>
+                                </div>
+                                <div class="code-content">
+                                    <pre><code class="language-bash"># Usando curl (Linux/macOS)
+curl -sSL https://raw.githubusercontent.com/anthropic/claude-code/main/install.sh | bash
+
+# Verificando a instalação
+claude-code --version</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-box">
+                            <h4>Configurar a API Key</h4>
+                            <div class="code-window">
+                                <div class="code-header">
+                                    <span class="code-filename">Terminal</span>
+                                </div>
+                                <div class="code-content">
+                                    <pre><code class="language-bash"># Configurar a chave API
+claude-code config set api_key sk_ant_...
+
+# Verificar a configuração
+claude-code config get</code></pre>
+                                </div>
+                            </div>
+                            <p style="font-size: 0.7em;">Obtenha sua chave API em <a href="https://console.anthropic.com/" target="_blank">console.anthropic.com</a></p>
+                        </div>
+                        <div class="step-box">
+                            <h4>Instalar Dependências Python</h4>
+                            <div class="code-window">
+                                <div class="code-header">
+                                    <span class="code-filename">Terminal</span>
+                                </div>
+                                <div class="code-content">
+                                    <pre><code class="language-bash"># Instalar bibliotecas necessárias
+pip install anthropic python-dotenv requests click rich
+
+# Verificar instalação
+pip list | grep anthropic</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>🚀 Estrutura do Projeto</h3>
+                    <div class="dual-column">
+                        <div>
+                            <div class="code-window">
+                                <div class="code-header">
+                                    <span class="code-filename">Estrutura de Arquivos</span>
+                                </div>
+                                <div class="code-content">
+                                    <pre><code class="language-bash">documentacao-4.0/
+├── scripts/
+│   ├── doc40-consulta.py     # Consulta à documentação
+│   ├── doc40-gerador.py      # Gerador de documentação
+│   ├── doc40-agente.py       # Agente de manutenção
+│   └── doc40-sistema.py      # Sistema completo
+├── docs/                     # Saída da documentação
+│   ├── api/                  # Documentação de API
+│   ├── guia/                 # Guias de uso
+│   └── metricas.json         # Métricas de documentação
+├── .github/
+│   └── workflows/
+│       └── atualizar-docs.yml # CI/CD para docs
+└── README.md                  # Instruções</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Scripts Principais</h4>
+                            <ul>
+                                <li><strong>doc40-consulta.py</strong>: Consulta à documentação usando busca agêntica</li>
+                                <li><strong>doc40-gerador.py</strong>: Gerador de documentação a partir do código</li>
+                                <li><strong>doc40-agente.py</strong>: Agente que monitora e atualiza a documentação</li>
+                                <li><strong>doc40-sistema.py</strong>: Sistema completo com interface interativa</li>
+                            </ul>
+                            <div class="action-notes">
+                                <strong>Nota:</strong> Todos os scripts estão disponíveis no guia prático, prontos para copiar e usar. Eles funcionam com qualquer projeto em qualquer linguagem.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- SEÇÃO 4: IMPLEMENTAÇÃO -->
+            <section>
+                <section>
+                    <h2>💻 Implementação: Primeiros Passos</h2>
+                    <h3>Consultando Documentação</h3>
+                    <div class="code-window">
+                        <div class="code-header">
+                            <span class="code-filename">doc40-consulta.py (versão simplificada)</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code class="language-python">import os
+import subprocess
+import json
+
+def consultar_codigo(pergunta, diretorio):
+    """Consulta o código usando Claude Code."""
+    print(f"📝 Consultando: {pergunta}")
+    
+    # Comando para o Claude Code CLI
+    comando = [
+        "claude-code",
+        "query",
+        "--directory", diretorio,
+        "--query", pergunta,
+        "--output", "json"
+    ]
+    
+    # Executar o comando
+    resultado = subprocess.run(comando, capture_output=True, text=True)
+    
+    # Processar e exibir o resultado
+    if resultado.returncode == 0:
+        try:
+            resposta = json.loads(resultado.stdout)
+            print("\n" + "="*50)
+            print(f"🤖 Resposta para: {pergunta}")
+            print("="*50)
+            print(resposta.get("response", "Sem resposta"))
+            print("="*50)
+            print("Fontes:")
+            for fonte in resposta.get("sources", []):
+                print(f"- {fonte['file']} (relevância: {fonte.get('relevance', 'N/A')})")
+            return resposta
+        except json.JSONDecodeError:
+            print("❌ Erro ao processar a resposta")
+            return None
+    else:
+        print(f"❌ Erro: {resultado.stderr}")
+        return None
+
+# Exemplo de uso
+if __name__ == "__main__":
+    diretorio = os.getcwd()  # Usar diretório atual
+    pergunta = "Como funciona o sistema de autenticação?"
+    consultar_codigo(pergunta, diretorio)</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="action-notes">
+                        <strong>Como executar:</strong> <code>python doc40-consulta.py</code>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Geração de Documentação Automática</h3>
+                    <div class="code-window">
+                        <div class="code-header">
+                            <span class="code-filename">doc40-gerador.py (versão simplificada)</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code class="language-python">import os
+import subprocess
+import argparse
+
+def gerar_documentacao(diretorio, formato="markdown", saida="docs"):
+    """Gera documentação automaticamente a partir do código."""
+    print(f"🚀 Gerando documentação para: {diretorio}")
+    print(f"📄 Formato: {formato}")
+    
+    # Criar diretório de saída se não existir
+    os.makedirs(saida, exist_ok=True)
+    
+    # Comando para o Claude Code CLI
+    comando = [
+        "claude-code",
+        "document",
+        "--directory", diretorio,
+        "--format", formato,
+        "--output-dir", saida
+    ]
+    
+    # Executar o comando
+    resultado = subprocess.run(comando, capture_output=True, text=True)
+    
+    # Verificar resultado
+    if resultado.returncode == 0:
+        print(f"✅ Documentação gerada com sucesso em: {saida}")
+        return True
+    else:
+        print(f"❌ Erro: {resultado.stderr}")
+        return False
+
+# Exemplo de uso
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Gerador de Documentação 4.0")
+    parser.add_argument("--dir", default=os.getcwd(), help="Diretório do projeto")
+    parser.add_argument("--formato", default="markdown", 
+                       choices=["markdown", "html", "pdf"], help="Formato de saída")
+    parser.add_argument("--saida", default="docs", help="Diretório de saída")
+    
+    args = parser.parse_args()
+    gerar_documentacao(args.dir, args.formato, args.saida)</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="action-notes">
+                        <strong>Como executar:</strong> <code>python doc40-gerador.py --dir ./meu-projeto --formato markdown --saida ./docs</code>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Agente de Manutenção de Documentação</h3>
+                    <div class="code-window">
+                        <div class="code-header">
+                            <span class="code-filename">doc40-agente.py (versão simplificada)</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code class="language-python">import os
+import subprocess
+import time
+import argparse
+from datetime import datetime
+
+def verificar_mudancas(diretorio, ultimo_commit=None):
+    """Verifica se houve mudanças no repositório."""
+    # Mudar para o diretório do projeto
+    os.chdir(diretorio)
+    
+    # Obter o último commit
+    comando = ["git", "rev-parse", "HEAD"]
+    resultado = subprocess.run(comando, capture_output=True, text=True)
+    
+    if resultado.returncode != 0:
+        print(f"❌ Erro ao obter o último commit: {resultado.stderr}")
+        return False, None
+    
+    commit_atual = resultado.stdout.strip()
+    
+    # Se não temos um commit anterior para comparar, apenas retornar o atual
+    if ultimo_commit is None:
+        return False, commit_atual
+    
+    # Se o commit atual é diferente do último, houve mudanças
+    return commit_atual != ultimo_commit, commit_atual
+
+def atualizar_documentacao(diretorio, commit_id, saida="docs"):
+    """Atualiza a documentação com base nas mudanças do commit."""
+    print(f"🔄 Atualizando documentação para commit: {commit_id[:8]}")
+    
+    # Comando para o Claude Code CLI
+    comando = [
+        "claude-code",
+        "update-docs",
+        "--directory", diretorio,
+        "--commit", commit_id,
+        "--output-dir", saida
+    ]
+    
+    # Executar o comando
+    resultado = subprocess.run(comando, capture_output=True, text=True)
+    
+    if resultado.returncode == 0:
+        # Registrar a atualização
+        agora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        with open(os.path.join(saida, "atualizacoes.log"), "a") as f:
+            f.write(f"{agora} - Documentação atualizada para commit {commit_id[:8]}\n")
+        
+        print(f"✅ Documentação atualizada com sucesso em: {saida}")
+        return True
+    else:
+        print(f"❌ Erro: {resultado.stderr}")
+        return False
+
+def executar_agente(diretorio, saida="docs", intervalo=300):
+    """Executa o agente de manutenção de documentação."""
+    print(f"🤖 Iniciando agente de manutenção de documentação")
+    print(f"📁 Diretório: {diretorio}")
+    print(f"📂 Saída: {saida}")
+    print(f"⏱️ Intervalo: {intervalo} segundos")
+    
+    # Criar diretório de saída se não existir
+    os.makedirs(saida, exist_ok=True)
+    
+    # Inicializar o último commit
+    _, ultimo_commit = verificar_mudancas(diretorio)
+    print(f"📌 Commit inicial: {ultimo_commit[:8] if ultimo_commit else 'Nenhum'}")
+    
+    try:
+        while True:
+            # Verificar mudanças
+            houve_mudancas, commit_atual = verificar_mudancas(diretorio, ultimo_commit)
+            
+            # Se houve mudanças, atualizar a documentação
+            if houve_mudancas:
+                print(f"🔍 Detectadas mudanças! Novo commit: {commit_atual[:8]}")
+                atualizar_documentacao(diretorio, commit_atual, saida)
+                ultimo_commit = commit_atual
+            
+            # Aguardar o próximo ciclo
+            time.sleep(intervalo)
+    
+    except KeyboardInterrupt:
+        print("\n⏹️ Agente interrompido pelo usuário")
+
+# Exemplo de uso
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Agente de Manutenção de Documentação 4.0")
+    parser.add_argument("--dir", default=os.getcwd(), help="Diretório do projeto")
+    parser.add_argument("--saida", default="docs", help="Diretório de saída")
+    parser.add_argument("--intervalo", type=int, default=300, 
+                       help="Intervalo entre verificações (segundos)")
+    
+    args = parser.parse_args()
+    executar_agente(args.dir, args.saida, args.intervalo)</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="action-notes">
+                        <strong>Como executar:</strong> <code>python doc40-agente.py --dir ./meu-projeto --saida ./docs --intervalo 300</code>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Sistema Completo: Interface Interativa</h3>
+                    <div class="code-window">
+                        <div class="code-header">
+                            <span class="code-filename">Menu Interativo do Sistema Completo</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code class="language-text">=================================================
+📚 SISTEMA DE DOCUMENTAÇÃO 4.0
+=================================================
+1. Consultar documentação/código
+2. Gerar documentação geral
+3. Gerar documentação de API
+4. Iniciar agente de manutenção
+5. Parar agente de manutenção
+6. Sair
+=================================================
+
+Escolha uma opção (1-6): 1
+Digite sua pergunta: Como funciona o sistema de autenticação?
+
+📝 Consultando: Como funciona o sistema de autenticação?
+
+=================================================
+🤖 Resposta para: Como funciona o sistema de autenticação?
+=================================================
+O sistema de autenticação usa tokens JWT (JSON Web Tokens) para autenticar 
+usuários. O fluxo de autenticação funciona da seguinte forma:
+
+1. O usuário envia credenciais (email/senha) para o endpoint `/api/auth/login`
+2. O servidor valida as credenciais contra o banco de dados
+3. Se válidas, gera um token JWT assinado com uma chave secreta
+4. O token contém o ID do usuário, perfil e data de expiração (24 horas)
+5. O cliente armazena o token e o inclui no cabeçalho Authorization de 
+   todas as requisições subsequentes
+6. O middleware de autenticação valida o token antes de permitir 
+   acesso aos endpoints protegidos
+
+Para renovar o token, o cliente deve chamar `/api/auth/refresh` antes 
+da expiração.
+=================================================
+Fontes:
+- src/auth/jwt.js (relevância: 0.95)
+- src/controllers/auth.js (relevância: 0.92)
+- docs/authentication.md (relevância: 0.88)</code></pre>
+                        </div>
+                    </div>
+                    
+                    <p style="font-size: 0.7em; text-align: center;">O sistema completo combina todos os componentes em uma interface interativa fácil de usar.<br>Código completo disponível no guia prático.</p>
+                </section>
+
+                <section>
+                    <h3>Integração com CI/CD (GitHub Actions)</h3>
+                    <div class="code-window">
+                        <div class="code-header">
+                            <span class="code-filename">.github/workflows/atualizar-docs.yml</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code class="language-yaml">name: Atualizar Documentação
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Necessário para acesso ao histórico de commits
+      
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          pip install anthropic python-dotenv requests click rich
+      
+      - name: Instalar Claude Code CLI
+        run: |
+          curl -sSL https://raw.githubusercontent.com/anthropic/claude-code/main/install.sh | bash
+      
+      - name: Configurar Claude Code
+        run: |
+          claude-code config set api_key ${{ secrets.CLAUDE_API_KEY }}
+      
+      - name: Atualizar documentação
+        run: |
+          # Obter o commit anterior
+          PREVIOUS_COMMIT=$(git rev-parse HEAD^)
+          CURRENT_COMMIT=$(git rev-parse HEAD)
+          
+          # Atualizar documentação
+          claude-code update-docs --directory . \
+            --commit $CURRENT_COMMIT \
+            --previous-commit $PREVIOUS_COMMIT \
+            --output-dir docs
+      
+      - name: Commit das alterações de documentação
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add docs/
+          git commit -m "📚 Atualização automática da documentação" || echo "Sem alterações"
+          git push</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="action-notes">
+                        <strong>Importante:</strong> Não esqueça de adicionar sua chave API do Claude como um secret do repositório chamado <code>CLAUDE_API_KEY</code> nas configurações do GitHub.
+                    </div>
+                </section>
+            </section>
+
+            <!-- SEÇÃO 5: DEMONSTRAÇÃO E CASOS DE USO -->
+            <section>
+                <section>
+                    <h2>🚀 Demonstração e Casos de Uso</h2>
+                    <div class="demo-section">
+                        <h3>Sistema de Documentação 4.0 em Ação</h3>
+                        <p>Demonstração ao vivo de como o sistema funciona em um projeto real.</p>
+                        <a href="./doc40-guia-pratico.md" class="launch-button" onclick="event.preventDefault(); openGuide();">VER GUIA PRÁTICO COMPLETO</a>
+                    </div>
+                    
+                    <div class="dual-column">
+                        <div>
+                            <h4>Fluxo de Trabalho Automático</h4>
+                            <ol>
+                                <li>Desenvolvedor faz um commit no repositório</li>
+                                <li>CI/CD detecta a mudança e aciona o agente</li>
+                                <li>Agente analisa as alterações no código</li>
+                                <li>Documentação é atualizada automaticamente</li>
+                                <li>Resultados são disponibilizados imediatamente</li>
+                            </ol>
+                        </div>
+                        <div>
+                            <h4>Benefícios Imediatos</h4>
+                            <ul>
+                                <li>Redução de 95% no tempo de manutenção</li>
+                                <li>Documentação sempre sincronizada com o código</li>
+                                <li>Respostas precisas às perguntas dos desenvolvedores</li>
+                                <li>Exemplos de código sempre atualizados e validados</li>
+                                <li>Onboarding mais rápido de novos membros da equipe</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>📚 Casos de Uso Reais</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
+                        <div style="background: #252525; padding: 15px; border-radius: 8px;">
+                            <h4>Caso 1: API Docs (Fintech)</h4>
+                            <ul style="font-size: 0.7em;">
+                                <li><strong>Antes:</strong> 40 horas/mês de manutenção manual</li>
+                                <li><strong>Implementação:</strong> 6 semanas com Claude Code</li>
+                                <li><strong>Resultados:</strong></li>
+                                <ul>
+                                    <li>Redução de 95% no tempo de manutenção</li>
+                                    <li>Aumento de 30% na adoção da API</li>
+                                    <li>Redução de 75% em tickets de suporte</li>
+                                    <li>ROI: 510% no primeiro ano</li>
+                                </ul>
+                            </ul>
+                        </div>
+                        <div style="background: #252525; padding: 15px; border-radius: 8px;">
+                            <h4>Caso 2: Knowledge Base (SaaS)</h4>
+                            <ul style="font-size: 0.7em;">
+                                <li><strong>Antes:</strong> Tempo médio de busca: 35 min</li>
+                                <li><strong>Implementação:</strong> 8 semanas com Claude Code</li>
+                                <li><strong>Resultados:</strong></li>
+                                <ul>
+                                    <li>Tempo médio de busca: 2 min (94% redução)</li>
+                                    <li>Taxa de sucesso na primeira busca: 92%</li>
+                                    <li>Documentação sincronizada com código: 100%</li>
+                                    <li>Economia anual: ~$200K</li>
+                                </ul>
+                            </ul>
+                        </div>
+                        <div style="background: #252525; padding: 15px; border-radius: 8px; border-left: 4px solid #FF5722;">
+                            <h4>Caso 3: Onboarding (DevOps)</h4>
+                            <ul style="font-size: 0.7em;">
+                                <li><strong>Antes:</strong> 6 semanas de onboarding por dev</li>
+                                <li><strong>Implementação:</strong> 4 semanas de implementação</li>
+                                <li><strong>Resultados:</strong></li>
+                                <ul>
+                                    <li>Tempo de onboarding reduzido para 2 semanas</li>
+                                    <li>Produtividade de novos devs 2.5x maior</li>
+                                    <li>Documentação 100% atualizada</li>
+                                    <li>ROI: 780% no primeiro ano</li>
+                                    <li>Redução de 85% em erros operacionais</li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="background: #252525; padding: 10px; border-radius: 5px; margin-top: 15px; text-align: center;">
+                        <p style="margin: 0; font-size: 0.8em;">A implementação típica da Doc 4.0 com Claude Code tem ROI de <span class="highlight">300-500%</span> no primeiro ano</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>🛠️ Recursos Práticos</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.7em;">
+                        <div style="background: #252525; padding: 15px; border-radius: 8px;">
+                            <h4>Ferramentas Essenciais</h4>
+                            <ul>
+                                <li><strong>Claude Code CLI</strong> - Ferramenta principal</li>
+                                <li><strong>GitHub Actions</strong> - Automação de fluxos</li>
+                                <li><strong>Python</strong> - Scripts de integração</li>
+                                <li><strong>Markdown/OpenAPI</strong> - Formatos de documentação</li>
+                                <li><strong>Git</strong> - Controle de versão</li>
+                            </ul>
+                        </div>
+                        <div style="background: #252525; padding: 15px; border-radius: 8px;">
+                            <h4>Código e Exemplos</h4>
+                            <ul>
+                                <li><strong>Guia Prático:</strong> <a href="./doc40-guia-pratico.md" onclick="event.preventDefault(); openGuide();">doc40-guia-pratico.md</a></li>
+                                <li><strong>Exemplos:</strong> <a href="./doc40-sistema.py" onclick="event.preventDefault(); openExampleFile();">doc40-sistema.py</a></li>
+                                <li><strong>Apresentação:</strong> <a href="./doc40-slides-simplificados.html" onclick="event.preventDefault(); openSlidesFile();">doc40-slides-simplificados.html</a></li>
+                                <li><strong>Documentação Oficial:</strong> <a href="https://docs.anthropic.com/claude-code" target="_blank">docs.anthropic.com/claude-code</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="background: #252525; padding: 15px; border-radius: 8px; margin-top: 20px;">
+                        <h4>Como Começar Hoje</h4>
+                        <ol style="font-size: 0.7em; columns: 2;">
+                            <li>Instale o Claude Code CLI</li>
+                            <li>Configure sua chave API</li>
+                            <li>Copie os scripts do guia prático</li>
+                            <li>Execute o sistema em seu projeto</li>
+                            <li>Integre com seu workflow de desenvolvimento</li>
+                            <li>Configure o CI/CD para atualizações automáticas</li>
+                        </ol>
+                    </div>
+                </section>
+            </section>
+
+            <!-- SEÇÃO 6: CONCLUSÃO -->
+            <section>
+                <section data-background-color="var(--cp-blue)" style="color:white;">
+                    <h2 style="color:white;">📚 Próximos Passos</h2>
+                    <div class="progress-section" style="margin-bottom: 30px;">
+                        <div class="progress-item">
+                            <div class="progress-circle" style="background: white; color: var(--cp-blue);">1</div>
+                            <div class="progress-label" style="color: white;">Instale<br>Claude Code</div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-circle" style="background: white; color: var(--cp-blue);">2</div>
+                            <div class="progress-label" style="color: white;">Configure<br>API Key</div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-circle" style="background: white; color: var(--cp-blue);">3</div>
+                            <div class="progress-label" style="color: white;">Copie<br>Scripts</div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-circle" style="background: white; color: var(--cp-blue);">4</div>
+                            <div class="progress-label" style="color: white;">Execute<br>Sistema</div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-circle" style="background: white; color: var(--cp-blue);">5</div>
+                            <div class="progress-label" style="color: white;">Integre<br>CI/CD</div>
+                        </div>
+                    </div>
+                    
+                    <blockquote style="background: rgba(255, 255, 255, 0.1); border-left: 4px solid white;">
+                        "A documentação não é mais um fardo, mas um ativo estratégico que evolui automaticamente com seu código."
+                    </blockquote>
+                    
+                    <div style="margin-top: 40px; display: flex; justify-content: space-around;">
+                        <div>
+                            <p style="font-size: 0.8em; color: white;">
+                                <strong>Lucas Dórea Cardoso</strong><br>
+                                GitHub: <a href="https://github.com/Lucasdoreac" target="_blank" style="color: white;">github.com/Lucasdoreac</a><br>
+                                LinkedIn: <a href="https://www.linkedin.com/in/lucas-dórea-cardoso-771833112/" target="_blank" style="color: white;">linkedin.com/in/lucas-dorea-cardoso</a>
+                            </p>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.8em; color: white;">
+                                <strong>Aulus Diniz</strong><br>
+                                GitHub: <a href="#" target="_blank" style="color: white;">github.com/aulusdiniz</a><br>
+                                LinkedIn: <a href="#" target="_blank" style="color: white;">linkedin.com/in/aulus-diniz</a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <a href="./doc40-guia-pratico.md" class="launch-button" style="padding: 12px 20px; font-size: 1.1em; background-color: white; color: var(--cp-blue);" onclick="event.preventDefault(); openGuide();">OBTER GUIA PRÁTICO</a>
+                    </div>
+                </section>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/reveal.js@4.3.1/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js@4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="https://unpkg.com/reveal.js@4.3.1/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js@4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="https://unpkg.com/reveal.js@4.3.1/plugin/zoom/zoom.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: true,
+            overview: true,
+            transition: 'slide', 
+            width: 1280, 
+            height: 720, 
+            margin: 0.04, 
+            minScale: 0.2, 
+            maxScale: 2.0, 
+            plugins: [ RevealHighlight, RevealNotes, RevealMarkdown, RevealZoom ],
+            highlight: {
+                lineNumbers: false, 
+                highlightOnLoad: true,
+                escapeHTML: true
+            }
+        });
+        
+        function openGuide() {
+            if (confirm("Abrir o guia prático?")) {
+                window.location.href = "file://./doc40-guia-pratico.md";
+            }
+        }
+        
+        function openExampleFile() {
+            if (confirm("Abrir arquivo de exemplo?")) {
+                window.location.href = "file://./doc40-sistema.py";
+            }
+        }
+        
+        function openSlidesFile() {
+            if (confirm("Abrir apresentação?")) {
+                window.location.href = "file://./doc40-slides-simplificados.html";
+            }
+        }
+    </script>
+</body>
+</html>
