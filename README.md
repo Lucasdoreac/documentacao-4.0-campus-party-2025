@@ -10,7 +10,7 @@ Para instruções detalhadas, veja o [Guia de Uso](./COMO-USAR.md).
 
 ### 📖 Documentação e Apresentação
 - **[doc40-guia-pratico.md](./doc40-guia-pratico.md)**: Guia prático completo para implementar Documentação 4.0
-- **[doc40-slides-simplificados.html](./doc40-slides-simplificados.html)**: Apresentação de slides usada na Campus Party
+- **[doc40-slides-atualizados.html](./doc40-slides-atualizados.html)**: Apresentação de slides usada na Campus Party
 
 ### 🔧 Scripts de Demo e Instalação
 - **[doc40-instalacao-rapida.sh](./doc40-instalacao-rapida.sh)**: Script de instalação rápida para o ambiente de Documentação 4.0
@@ -34,7 +34,7 @@ Para instruções detalhadas, veja o [Guia de Uso](./COMO-USAR.md).
 
 Para começar a usar os recursos deste repositório:
 
-1. Veja a apresentação de slides: `./doc40-slides-simplificados.html`
+1. Veja a apresentação de slides: `./doc40-slides-atualizados.html`
 2. Leia o guia prático completo: `./doc40-guia-pratico.md`
 3. Execute o script de instalação rápida: `./doc40-instalacao-rapida.sh`
 4. Experimente a demonstração automática: `./doc40-auto-demo-rapido.sh`

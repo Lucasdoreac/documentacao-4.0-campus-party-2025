@@ -42,25 +42,25 @@ DEMO_PROJECT_DIR="$BASE_DIR/demo-project"
 open_presentation() {
     if [ "$(uname)" == "Darwin" ]; then
         # macOS
-        open "$BASE_DIR/doc40-slides-simplificados.html"
+        open "$BASE_DIR/doc40-slides-atualizados.html"
     elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         # Linux
         if command -v xdg-open > /dev/null; then
-            xdg-open "$BASE_DIR/doc40-slides-simplificados.html"
+            xdg-open "$BASE_DIR/doc40-slides-atualizados.html"
         elif command -v firefox > /dev/null; then
-            firefox "$BASE_DIR/doc40-slides-simplificados.html"
+            firefox "$BASE_DIR/doc40-slides-atualizados.html"
         elif command -v google-chrome > /dev/null; then
-            google-chrome "$BASE_DIR/doc40-slides-simplificados.html"
+            google-chrome "$BASE_DIR/doc40-slides-atualizados.html"
         else
             echo "Não foi possível abrir o navegador automaticamente."
-            echo "Por favor, abra manualmente o arquivo: $BASE_DIR/doc40-slides-simplificados.html"
+            echo "Por favor, abra manualmente o arquivo: $BASE_DIR/doc40-slides-atualizados.html"
         fi
     elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ] || [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
         # Windows
-        start "$BASE_DIR/doc40-slides-simplificados.html"
+        start "$BASE_DIR/doc40-slides-atualizados.html"
     else
         echo "Não foi possível detectar o sistema operacional."
-        echo "Por favor, abra manualmente o arquivo: $BASE_DIR/doc40-slides-simplificados.html"
+        echo "Por favor, abra manualmente o arquivo: $BASE_DIR/doc40-slides-atualizados.html"
     fi
 }
 
@@ -438,7 +438,7 @@ mostrar_conclusao() {
     sleep 1
     echo -e "${BLUE}Para saber mais:${NC}"
     echo -e "1. Consulte o guia prático: ${YELLOW}doc40-guia-pratico.md${NC}"
-    echo -e "2. Veja a apresentação completa: ${YELLOW}doc40-slides-simplificados.html${NC}"
+    echo -e "2. Veja a apresentação completa: ${YELLOW}doc40-slides-atualizados.html${NC}"
     echo -e "3. Explore os scripts de exemplo: ${YELLOW}doc40-*.py${NC}"
     echo ""
     

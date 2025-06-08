@@ -18,13 +18,13 @@ cd documentacao-4.0-campus-party-2025
 
 # Ver a apresentação
 # No macOS
-open doc40-slides-simplificados.html
+open doc40-slides-atualizados.html
 
 # No Linux
-xdg-open doc40-slides-simplificados.html
+xdg-open doc40-slides-atualizados.html
 
 # No Windows
-start doc40-slides-simplificados.html
+start doc40-slides-atualizados.html
 ```
 
 ## Método 3: Download Direto
@@ -34,7 +34,7 @@ https://github.com/Lucasdoreac/documentacao-4.0-campus-party-2025/archive/refs/h
 
 ## Arquivos Principais
 
-1. **Apresentação:** `doc40-slides-simplificados.html`
+1. **Apresentação:** `doc40-slides-atualizados.html`
 2. **Guia Prático:** `doc40-guia-pratico.md`
 3. **Demonstração Rápida:** `doc40-auto-demo-rapido.sh`
 4. **Demonstração Completa:** `doc40-auto-demo-simples.sh`

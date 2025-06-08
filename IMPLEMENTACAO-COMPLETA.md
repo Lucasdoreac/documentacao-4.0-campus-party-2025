@@ -4,7 +4,7 @@ O script `doc40-completo.py` fornece uma implementação completa, robusta e pro
 
 ## Por que uma implementação completa?
 
-Notamos que os exemplos nos slides (`doc40-slides-simplificados.html`) são versões "simplificadas" que demonstram os conceitos, mas não implementam completamente as funcionalidades prometidas. A nova implementação:
+Notamos que os exemplos nos slides originais eram versões "simplificadas" que demonstravam os conceitos, mas não implementavam completamente as funcionalidades prometidas. Nossa implementação completa:
 
 1. **É 100% funcional** e pronta para uso em projetos reais
 2. **Implementa todos os recursos** mencionados na apresentação
