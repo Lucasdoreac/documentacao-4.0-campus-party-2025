@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página não encontrada - Documentação 4.0</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .error-code {
+            font-size: 72px;
+            font-weight: bold;
+            color: #3498db;
+            margin: 30px 0;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        .button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .button:hover {
+            background: #2980b9;
+            text-decoration: none;
+            color: white;
+        }
+        .links {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: left;
+        }
+        .links h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .links li {
+            margin: 10px 0;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .links li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Página não encontrada</h1>
+    <div class="error-code">404</div>
+    <p>Desculpe, a página que você está procurando não existe ou foi movida.</p>
+    
+    <a href="index.html" class="button">Voltar à Página Principal</a>
+    
+    <div class="links">
+        <h2>Links Disponíveis</h2>
+        <ul>
+            <li><a href="doc40-slides-atualizados.html">📊 Apresentação de Slides</a> - Slides da apresentação "Documentação 4.0 na Era IA"</li>
+            <li><a href="https://github.com/Lucasdoreac/documentacao-4.0-campus-party-2025/blob/main/doc40-guia-pratico.md" target="_blank">📚 Guia Prático</a> - Guia completo para implementar Documentação 4.0</li>
+            <li><a href="https://github.com/Lucasdoreac/documentacao-4.0-campus-party-2025/blob/main/doc40-consulta.py" target="_blank">🔍 Módulo de Consulta</a> - Implementação completa do módulo de consulta</li>
+            <li><a href="https://github.com/Lucasdoreac/documentacao-4.0-campus-party-2025/blob/main/doc40-gerador.py" target="_blank">📝 Gerador de Documentação</a> - Implementação completa do gerador</li>
+            <li><a href="https://github.com/Lucasdoreac/documentacao-4.0-campus-party-2025/blob/main/doc40-agente.py" target="_blank">🤖 Agente de Manutenção</a> - Implementação completa do agente</li>
+            <li><a href="https://github.com/Lucasdoreac/documentacao-4.0-campus-party-2025/blob/main/doc40-sistema.py" target="_blank">🔄 Sistema Completo</a> - Implementação do sistema integrado</li>
+            <li><a href="https://github.com/Lucasdoreac/documentacao-4.0-campus-party-2025" target="_blank">📦 Repositório no GitHub</a> - Todo o código-fonte do projeto</li>
+        </ul>
+    </div>
+
+    <p>Se você chegou aqui por um link, por favor informe ao <a href="https://github.com/Lucasdoreac/documentacao-4.0-campus-party-2025/issues" target="_blank">reportando um problema</a> no GitHub.</p>
+
+    <script>
+        // Script para detectar URL incorreta e sugerir alternativa
+        document.addEventListener('DOMContentLoaded', function() {
+            const path = window.location.pathname;
+            const suggestedUrl = document.querySelector('.suggested-url');
+            
+            if (path.includes('doc40-slides-simplificados.html')) {
+                const container = document.createElement('div');
+                container.style.background = '#e3f2fd';
+                container.style.padding = '15px';
+                container.style.borderRadius = '8px';
+                container.style.margin = '20px 0';
+                container.innerHTML = '<p><strong>Você está procurando os slides simplificados?</strong> Eles foram atualizados. Por favor, use a versão atualizada:</p>' +
+                    '<p><a href="doc40-slides-atualizados.html" class="button">Ver Slides Atualizados</a></p>';
+                
+                document.querySelector('h1').insertAdjacentElement('afterend', container);
+            }
+        });
+    </script>
+</body>
+</html>
