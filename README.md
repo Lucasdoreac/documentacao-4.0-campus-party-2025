@@ -14,6 +14,7 @@ Para instruções detalhadas, veja o [Guia de Uso](./COMO-USAR.md).
 - **[doc40-live-code-generator.py](./doc40-live-code-generator.py)**: Demonstração de geração de código com documentação integrada
 - **[doc40-auto-demo-rapido.sh](./doc40-auto-demo-rapido.sh)**: Script de demonstração automática (versão rápida)
 - **[doc40-auto-demo-simples.sh](./doc40-auto-demo-simples.sh)**: Script de demonstração automática (versão completa)
+- **[doc40-completo.py](./doc40-completo.py)**: Implementação completa e robusta do sistema de Documentação 4.0 com todas as funcionalidades
 - **[demo-project/](./demo-project/)**: Projeto de exemplo para demonstrações
 - **[publicar-github.sh](./publicar-github.sh)**: Script para publicar este projeto no seu GitHub
 
