@@ -2,6 +2,10 @@
 
 Este repositório contém todos os materiais para a apresentação "Documentação 4.0 na Era IA: Do Zero ao Avançado" da Campus Party 2025, por Lucas Dórea Cardoso e Aulus Diniz.
 
+🌐 **[Acesse a apresentação online](https://lucasdoreac.github.io/documentacao-4.0-campus-party-2025/)** 🌐
+
+Para instruções detalhadas, veja o [Guia de Uso](./COMO-USAR.md).
+
 ## 📚 Conteúdo Principal
 
 - **[doc40-guia-pratico.md](./doc40-guia-pratico.md)**: Guia prático completo para implementar Documentação 4.0
